@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoClasses
 {
-    public class Class1
+    class Prateleira
     {
     }
 }
