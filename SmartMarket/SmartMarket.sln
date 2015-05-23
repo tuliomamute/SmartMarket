@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMarket", "SmartMarket\SmartMarket.csproj", "{B670B9C7-69D8-4330-86DD-9633D70ED75D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoClasses", "ProjetoClasses\ProjetoClasses.csproj", "{9E225AED-0E31-4C66-A4E8-298920D9DF84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B670B9C7-69D8-4330-86DD-9633D70ED75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B670B9C7-69D8-4330-86DD-9633D70ED75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B670B9C7-69D8-4330-86DD-9633D70ED75D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E225AED-0E31-4C66-A4E8-298920D9DF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E225AED-0E31-4C66-A4E8-298920D9DF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E225AED-0E31-4C66-A4E8-298920D9DF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E225AED-0E31-4C66-A4E8-298920D9DF84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
