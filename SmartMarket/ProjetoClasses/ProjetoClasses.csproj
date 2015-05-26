@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logicas\FIFO.cs" />
+    <Compile Include="Logicas\LastRecentUsed.cs" />
+    <Compile Include="Logicas\SecondChance.cs" />
     <Compile Include="Prateleira.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
