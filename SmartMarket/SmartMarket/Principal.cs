@@ -7,11 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjetoClasses;
+using ProjetoClasses.Logicas;
+using System.IO;
 
 namespace SmartMarket
 {
     public partial class Principal : Form
     {
+        /// <summary>
+        /// Sequencia de valores a serem inseridos na prateleira
+        /// </summary>
+        private string SequenciaValores;
+        /// <summary>
+        /// Tamanho da Prateleira
+        /// </summary>
+        private int TamanhoPrateleira;
+
         public Principal()
         {
             InitializeComponent();
@@ -38,6 +50,35 @@ namespace SmartMarket
         /// <param name="e"></param>
         private void BtnExecutar_Click(object sender, EventArgs e)
         {
+
+            LerArquivoTxt();
+
+            FIFO AlgoritmoFifo = new FIFO();
+            AlgoritmoFifo.IniciarProcessamento(SequenciaValores, TamanhoPrateleira);
+        }
+
+        /// <summary>
+        /// Leitura de Arquivo Txt para recuperação dos valores, setando nas propriedades corretas.
+        /// </summary>
+        private void LerArquivoTxt()
+        {
+            StreamReader arquivo = null;
+            try
+            {
+                arquivo = new StreamReader(TxtEndArquivo.Text);
+
+                TamanhoPrateleira = int.Parse(arquivo.ReadLine());
+                SequenciaValores = arquivo.ReadLine();
+
+            }
+            finally
+            {
+                if (arquivo != null)
+                {
+                    arquivo.Close();
+                    arquivo = null;
+                }
+            }
 
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoClasses
 {
-    class Prateleira
+    public class Prateleira
     {
         public Produto[] Esteira;
 
@@ -18,6 +18,26 @@ namespace ProjetoClasses
         {
             Esteira = new Produto[TamanhoArray];
         }
+
+        /// <summary>
+        /// Adiciona um elemento ao vetor
+        /// </summary>
+        /// <param name="prod">Objeto que deve ser adicionado</param>
+        public void AdicionarElemento(Produto prod)
+        {
+            Esteira[Esteira.GetLength(0) - 1] = prod;
+        }
+
+        /// <summary>
+        /// Retira os Elementos do vetor, baseado no indice desejado
+        /// </summary>
+        /// <param name="indice">Indice onde se encontra o objeto a ser retirado</param>
+        public void RetirarElemento(int indice)
+        {
+            Esteira[indice] = null;
+            
+        }
+
     }
 
 }
