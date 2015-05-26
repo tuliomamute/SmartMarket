@@ -8,6 +8,12 @@ namespace ProjetoClasses
 {
     public class Produto
     {
+        /// <summary>
+        /// Construtor de Objeto Produto, para criar um objeto do tipo produto
+        /// </summary>
+        /// <param name="aId"></param>
+        /// <param name="aNome"></param>
+        /// <param name="abitsc"></param>
         public Produto(int aId, string aNome, int abitsc)
         {
             BitSc = abitsc;
