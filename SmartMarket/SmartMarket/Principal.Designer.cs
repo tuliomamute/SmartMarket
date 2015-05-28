@@ -32,9 +32,9 @@
             this.BtnUpload = new System.Windows.Forms.Button();
             this.FolderBuscarArquivo = new System.Windows.Forms.OpenFileDialog();
             this.GrpAlgoritmos = new System.Windows.Forms.GroupBox();
-            this.RButFIFO = new System.Windows.Forms.RadioButton();
-            this.RButSecondChance = new System.Windows.Forms.RadioButton();
             this.RButLRU = new System.Windows.Forms.RadioButton();
+            this.RButSecondChance = new System.Windows.Forms.RadioButton();
+            this.RButFIFO = new System.Windows.Forms.RadioButton();
             this.BtnExecutar = new System.Windows.Forms.Button();
             this.GrpAlgoritmos.SuspendLayout();
             this.SuspendLayout();
@@ -72,16 +72,16 @@
             this.GrpAlgoritmos.TabStop = false;
             this.GrpAlgoritmos.Text = "Algoritmos Disponíveis";
             // 
-            // RButFIFO
+            // RButLRU
             // 
-            this.RButFIFO.AutoSize = true;
-            this.RButFIFO.Location = new System.Drawing.Point(7, 20);
-            this.RButFIFO.Name = "RButFIFO";
-            this.RButFIFO.Size = new System.Drawing.Size(48, 17);
-            this.RButFIFO.TabIndex = 0;
-            this.RButFIFO.TabStop = true;
-            this.RButFIFO.Text = "FIFO";
-            this.RButFIFO.UseVisualStyleBackColor = true;
+            this.RButLRU.AutoSize = true;
+            this.RButLRU.Location = new System.Drawing.Point(6, 66);
+            this.RButLRU.Name = "RButLRU";
+            this.RButLRU.Size = new System.Drawing.Size(47, 17);
+            this.RButLRU.TabIndex = 2;
+            this.RButLRU.TabStop = true;
+            this.RButLRU.Text = "LRU";
+            this.RButLRU.UseVisualStyleBackColor = true;
             // 
             // RButSecondChance
             // 
@@ -94,16 +94,16 @@
             this.RButSecondChance.Text = "Second Chance";
             this.RButSecondChance.UseVisualStyleBackColor = true;
             // 
-            // RButLRU
+            // RButFIFO
             // 
-            this.RButLRU.AutoSize = true;
-            this.RButLRU.Location = new System.Drawing.Point(6, 66);
-            this.RButLRU.Name = "RButLRU";
-            this.RButLRU.Size = new System.Drawing.Size(47, 17);
-            this.RButLRU.TabIndex = 2;
-            this.RButLRU.TabStop = true;
-            this.RButLRU.Text = "LRU";
-            this.RButLRU.UseVisualStyleBackColor = true;
+            this.RButFIFO.AutoSize = true;
+            this.RButFIFO.Location = new System.Drawing.Point(7, 20);
+            this.RButFIFO.Name = "RButFIFO";
+            this.RButFIFO.Size = new System.Drawing.Size(48, 17);
+            this.RButFIFO.TabIndex = 0;
+            this.RButFIFO.TabStop = true;
+            this.RButFIFO.Text = "FIFO";
+            this.RButFIFO.UseVisualStyleBackColor = true;
             // 
             // BtnExecutar
             // 

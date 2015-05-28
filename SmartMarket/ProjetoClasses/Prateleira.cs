@@ -23,9 +23,9 @@ namespace ProjetoClasses
         /// Adiciona um elemento ao vetor
         /// </summary>
         /// <param name="prod">Objeto que deve ser adicionado</param>
-        public void AdicionarElemento(Produto prod)
+        public void AdicionarElemento(Produto prod, int indice)
         {
-            Esteira[Esteira.GetLength(0) - 1] = prod;
+            Esteira[indice] = prod;
         }
 
         /// <summary>
@@ -47,9 +47,13 @@ namespace ProjetoClasses
         {
             foreach (Produto item in Esteira)
             {
-                if (item.IdProduto == id)
+                if (item != null)
                 {
-                    return true;
+                    if (item.IdProduto == id)
+                    {
+                        return true;
+                    }
+
                 }
             }
             return false;

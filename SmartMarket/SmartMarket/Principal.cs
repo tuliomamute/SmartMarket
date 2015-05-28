@@ -50,11 +50,37 @@ namespace SmartMarket
         /// <param name="e"></param>
         private void BtnExecutar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                LerArquivoTxt();
 
-            LerArquivoTxt();
+                if (RButFIFO.Checked)
+                {
+                    FIFO AlgoritmoFifo = new FIFO();
+                    AlgoritmoFifo.IniciarProcessamento(SequenciaValores, TamanhoPrateleira);
+                }
 
-            FIFO AlgoritmoFifo = new FIFO();
-            AlgoritmoFifo.IniciarProcessamento(SequenciaValores, TamanhoPrateleira);
+                if (RButSecondChance.Checked)
+                {
+                    SecondChance AlgoritmoSC = new SecondChance();
+                    AlgoritmoSC.IniciarProcessamento(SequenciaValores, TamanhoPrateleira);
+                }
+
+                if (RButLRU.Checked)
+                {
+                    LastRecentUsed AlgoritmoLRU = new LastRecentUsed();
+                    AlgoritmoLRU.IniciarProcessamento(SequenciaValores, TamanhoPrateleira);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Um erro foi identificado, gentileza contactar o suporte.\n Mensagem: {0}",
+                                ex.Message), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
         }
 
         /// <summary>
