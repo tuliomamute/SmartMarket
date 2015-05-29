@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace ProjetoClasses.Logicas
 {
@@ -40,7 +41,7 @@ namespace ProjetoClasses.Logicas
                         Esteira.Esteira[tamanhoprateleira - 1] != null)
                     {
                         prod = VerificarBits(Esteira.Esteira);
-               
+
                         //Não foi encontrado nenhum objeto com o bit zerado
                         if (prod == null)
                         {
@@ -49,7 +50,7 @@ namespace ProjetoClasses.Logicas
                             //depois receber o objeto com o primeiro bit zerado
                             prod = VerificarBits(Esteira.Esteira);
                         }
-                        
+
                         //Retira elemento da fila
                         Esteira.RetirarElemento(Array.IndexOf(Esteira.Esteira, prod));
 
@@ -61,12 +62,10 @@ namespace ProjetoClasses.Logicas
 
                     }
                 }
-
                 //Neste Trecho, elaborar alguma estrutura de dados, para ser retornada ao form, para ser exibido.
                 //Como um datable, para ser populado em um datagrid.
 
             }
-
         }
 
         /// <summary>
@@ -75,7 +74,7 @@ namespace ProjetoClasses.Logicas
         /// <param name="Produtos"></param>
         /// <param name="chave"></param>
         /// <param name="Esteira"></param>
-       
+
         public void AdicionarElementoPrateleira(List<Produto> Produtos, string chave, ref Prateleira Esteira)
         {
             Produto prod;
@@ -109,7 +108,7 @@ namespace ProjetoClasses.Logicas
             //Se for diferente de nulo o retorno, identificar o primeiro objeto que contem indice 0
             return prat.Where(x => x.BitSc == 0).FirstOrDefault();
         }
-        
+
         /// <summary>
         /// Método responsável por zerar todos os bits do vetor
         /// </summary>

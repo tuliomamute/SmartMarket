@@ -63,7 +63,9 @@ namespace SmartMarket
                 if (RButSecondChance.Checked)
                 {
                     SecondChance AlgoritmoSC = new SecondChance();
+
                     AlgoritmoSC.IniciarProcessamento(SequenciaValores, TamanhoPrateleira);
+
                 }
 
                 if (RButLRU.Checked)
