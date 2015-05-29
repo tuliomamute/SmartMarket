@@ -31,7 +31,7 @@ namespace ProjetoClasses.Logicas
                     {
                         //Adiciona o elemento ao vetor
                         prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        Esteira.AdicionarElemento(prod, RetornaIndiceLivre(Esteira.Esteira));
+                        Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
 
                     }
                     //Se o elemento não existe no vetor e a ultima posição não está nula(fazendo-se a substituição de uma página)
@@ -46,7 +46,7 @@ namespace ProjetoClasses.Logicas
 
                         //Adiciona o elemento ao vetor
                         prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        Esteira.AdicionarElemento(prod, RetornaIndiceLivre(Esteira.Esteira));
+                        Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
 
                     }
 
@@ -57,24 +57,6 @@ namespace ProjetoClasses.Logicas
 
             }
 
-        }
-
-        /// <summary>
-        /// Retorna o primeiro indice disponível para inserção de um novo elemento
-        /// </summary>
-        /// <param name="prat">Array de Prateleira</param>
-        /// <returns></returns>
-        public int RetornaIndiceLivre(Produto[] prat)
-        {
-            for (int i = 0; i < prat.GetLength(0); i++)
-            {
-                if (prat[i] == null)
-                {
-                    return i;
-                }
-
-            }
-            return -1;
         }
 
         /// <summary>

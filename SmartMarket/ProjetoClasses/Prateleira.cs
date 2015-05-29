@@ -53,11 +53,29 @@ namespace ProjetoClasses
                     {
                         return true;
                     }
-
                 }
             }
             return false;
         }
+
+        /// <summary>
+        /// Retorna o primeiro indice disponível para inserção de um novo elemento
+        /// </summary>
+        /// <param name="prat">Array de Prateleira</param>
+        /// <returns></returns>
+        public int RetornaIndiceLivre(Produto[] prat)
+        {
+            for (int i = 0; i < prat.GetLength(0); i++)
+            {
+                if (prat[i] == null)
+                {
+                    return i;
+                }
+
+            }
+            return -1;
+        }
+
 
     }
 
