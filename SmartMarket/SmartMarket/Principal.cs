@@ -79,8 +79,6 @@ namespace SmartMarket
                                 ex.Message), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-
-
         }
 
         /// <summary>

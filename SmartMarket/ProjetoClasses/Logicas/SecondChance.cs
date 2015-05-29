@@ -32,8 +32,9 @@ namespace ProjetoClasses.Logicas
                         Esteira.Esteira[tamanhoprateleira - 1] == null)
                     {
                         //Adiciona o elemento ao vetor
-                        prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
+                        //prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
+                        //Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
+                        AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
 
                     }
                     //Se o elemento não existe no vetor e a ultima posição não está nula(fazendo-se a substituição de uma página)
@@ -55,15 +56,31 @@ namespace ProjetoClasses.Logicas
                         this.ReorganizaElementos(ref Esteira.Esteira);
 
                         //Adicionado o valor na fila
-                        prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
+                        //prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
+                        //Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
 
-
+                        AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
                     }
                 }
             }
 
         }
+
+        /// <summary>
+        /// Método responsável por gerenciar a qual objeto deve ser inserido no vetor
+        /// </summary>
+        /// <param name="Produtos"></param>
+        /// <param name="chave"></param>
+        /// <param name="Esteira"></param>
+        public void AdicionarElementoPrateleira(List<Produto> Produtos, string chave, ref Prateleira Esteira)
+        {
+            Produto prod;
+
+            prod = Produtos.Find(x => x.IdProduto == int.Parse(chave.ToString()));
+            Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
+
+        }
+
         /// <summary>
         /// Reorganiza os elementos do vetor, após a retirada de um elemento
         /// </summary>
@@ -87,7 +104,7 @@ namespace ProjetoClasses.Logicas
         public Produto VerificarBits(Produto[] prat)
         {
             //Se for diferente de nulo o retorno, identificar o primeiro objeto que contem indice 0
-            return prat.First(x => x.BitSc == 0);
+            return prat.Where(x => x.BitSc == 0).FirstOrDefault();
         }
         /// <summary>
         /// Método responsável por zerar todos os bits do vetor
