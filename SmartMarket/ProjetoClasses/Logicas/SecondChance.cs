@@ -32,16 +32,15 @@ namespace ProjetoClasses.Logicas
                         Esteira.Esteira[tamanhoprateleira - 1] == null)
                     {
                         //Adiciona o elemento ao vetor
-                        //prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        //Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
                         AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
-
                     }
+
                     //Se o elemento não existe no vetor e a ultima posição não está nula(fazendo-se a substituição de uma página)
                     else if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString())) &&
                         Esteira.Esteira[tamanhoprateleira - 1] != null)
                     {
                         prod = VerificarBits(Esteira.Esteira);
+               
                         //Não foi encontrado nenhum objeto com o bit zerado
                         if (prod == null)
                         {
@@ -50,18 +49,22 @@ namespace ProjetoClasses.Logicas
                             //depois receber o objeto com o primeiro bit zerado
                             prod = VerificarBits(Esteira.Esteira);
                         }
+                        
                         //Retira elemento da fila
                         Esteira.RetirarElemento(Array.IndexOf(Esteira.Esteira, prod));
 
+                        //Reorganiza os elementos no vetor
                         this.ReorganizaElementos(ref Esteira.Esteira);
 
                         //Adicionado o valor na fila
-                        //prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        //Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
-
                         AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
+
                     }
                 }
+
+                //Neste Trecho, elaborar alguma estrutura de dados, para ser retornada ao form, para ser exibido.
+                //Como um datable, para ser populado em um datagrid.
+
             }
 
         }
@@ -72,13 +75,13 @@ namespace ProjetoClasses.Logicas
         /// <param name="Produtos"></param>
         /// <param name="chave"></param>
         /// <param name="Esteira"></param>
+       
         public void AdicionarElementoPrateleira(List<Produto> Produtos, string chave, ref Prateleira Esteira)
         {
             Produto prod;
 
             prod = Produtos.Find(x => x.IdProduto == int.Parse(chave.ToString()));
             Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
-
         }
 
         /// <summary>
@@ -106,6 +109,7 @@ namespace ProjetoClasses.Logicas
             //Se for diferente de nulo o retorno, identificar o primeiro objeto que contem indice 0
             return prat.Where(x => x.BitSc == 0).FirstOrDefault();
         }
+        
         /// <summary>
         /// Método responsável por zerar todos os bits do vetor
         /// </summary>

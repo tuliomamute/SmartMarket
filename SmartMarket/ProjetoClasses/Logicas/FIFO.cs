@@ -18,11 +18,13 @@ namespace ProjetoClasses.Logicas
         {
 
             List<Produto> Produtos = Produto.RetornaListaProduto();
-            Produto prod;
+            Produto prod = null;
             Prateleira Esteira = new Prateleira(tamanhoprateleira);
 
             foreach (char item in sequencia)
-            {
+            {   
+                prod = null;
+
                 if (item != '.')
                 {
                     //Se o elemento não existe no vetor e a ultima posição está nula, ou seja, podendo-se inserir novos elementos
@@ -30,8 +32,7 @@ namespace ProjetoClasses.Logicas
                         Esteira.Esteira[tamanhoprateleira - 1] == null)
                     {
                         //Adiciona o elemento ao vetor
-                        prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
+                        AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
 
                     }
                     //Se o elemento não existe no vetor e a ultima posição não está nula(fazendo-se a substituição de uma página)
@@ -45,8 +46,7 @@ namespace ProjetoClasses.Logicas
                         this.ReorganizaElementos(ref Esteira.Esteira);
 
                         //Adiciona o elemento ao vetor
-                        prod = Produtos.Find(x => x.IdProduto == int.Parse(item.ToString()));
-                        Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
+                        AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
 
                     }
 
@@ -78,5 +78,20 @@ namespace ProjetoClasses.Logicas
                 }
             }
         }
+
+        /// <summary>
+        /// Método responsável por gerenciar a qual objeto deve ser inserido no vetor
+        /// </summary>
+        /// <param name="Produtos"></param>
+        /// <param name="chave"></param>
+        /// <param name="Esteira"></param>
+        public void AdicionarElementoPrateleira(List<Produto> Produtos, string chave, ref Prateleira Esteira)
+        {
+            Produto prod;
+
+            prod = Produtos.Find(x => x.IdProduto == int.Parse(chave.ToString()));
+            Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
+        }
+
     }
 }
