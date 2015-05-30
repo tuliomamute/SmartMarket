@@ -1,11 +1,1 @@
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\obj\Debug\SmartMarket.csprojResolveAssemblyReference.cache
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\obj\Debug\SmartMarket.Properties.Resources.resources
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\obj\Debug\SmartMarket.csproj.GenerateResource.Cache
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\obj\Debug\SmartMarket.exe
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\obj\Debug\SmartMarket.pdb
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\bin\SmartMarket.exe.config
 A:\MapWards\SmartMarket\SmartMarket\SmartMarket\bin\SmartMarket.exe
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\bin\SmartMarket.pdb
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\bin\ProjetoClasses.dll
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\bin\ProjetoClasses.pdb
-A:\MapWards\SmartMarket\SmartMarket\SmartMarket\obj\Debug\SmartMarket.Principal.resources

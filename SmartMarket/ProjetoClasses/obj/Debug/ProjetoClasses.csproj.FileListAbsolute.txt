@@ -1,5 +1,0 @@
-A:\MapWards\SmartMarket\SmartMarket\ProjetoClasses\bin\ProjetoClasses.dll
-A:\MapWards\SmartMarket\SmartMarket\ProjetoClasses\bin\ProjetoClasses.pdb
-A:\MapWards\SmartMarket\SmartMarket\ProjetoClasses\obj\Debug\ProjetoClasses.csprojResolveAssemblyReference.cache
-A:\MapWards\SmartMarket\SmartMarket\ProjetoClasses\obj\Debug\ProjetoClasses.dll
-A:\MapWards\SmartMarket\SmartMarket\ProjetoClasses\obj\Debug\ProjetoClasses.pdb
