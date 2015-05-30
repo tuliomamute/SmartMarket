@@ -33,13 +33,13 @@ namespace ProjetoClasses.Logicas
                         if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString()), true))
                         {
                             AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
-                            AlterarIdentificadorTempo(Esteira.Esteira);
+                            AlterarIdentificadorTempo(ref Esteira.Esteira);
 
                         }
                         else
                         {
                             //Se ele estiver no vetor, deve-se retira-lo, para poder zerar o controlador de tempo
-                            AlterarIdentificadorTempo(Esteira.Esteira);
+                            AlterarIdentificadorTempo(ref Esteira.Esteira);
                         }
                     }
                     else
@@ -54,13 +54,13 @@ namespace ProjetoClasses.Logicas
                             AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
 
                             //Executa o metodo que irá alterar os valores de tempo
-                            AlterarIdentificadorTempo(Esteira.Esteira);
+                            AlterarIdentificadorTempo(ref Esteira.Esteira);
                         }
                         else
                         {
                             //Se ele estiver no vetor, a troca de posição já foi feita.
                             //bastando executar o algoritmo para alterar o tempo dos objetos.
-                            AlterarIdentificadorTempo(Esteira.Esteira);
+                            AlterarIdentificadorTempo(ref Esteira.Esteira);
                         }
                     }
                 }
@@ -71,7 +71,7 @@ namespace ProjetoClasses.Logicas
         /// Método responsável por validar o identificador de tempo
         /// </summary>
         /// <param name="produto"></param>
-        private void AlterarIdentificadorTempo(Produto[] prat)
+        private void AlterarIdentificadorTempo(ref Produto[] prat)
         {
             for (int i = 0; i < prat.GetLength(0); i++)
             {
