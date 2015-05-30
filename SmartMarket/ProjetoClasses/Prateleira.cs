@@ -44,17 +44,26 @@ namespace ProjetoClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Caso, True, o objeto já existe, caso false, o objeto n existe</returns>
-        public Boolean VerificaExistenciaElemento(int id)
+        public Boolean VerificaExistenciaElemento(int id, bool LRU)
         {
+            int indice = -1;
+
             foreach (Produto item in Esteira)
             {
+                indice++;
                 if (item != null)
                 {
                     if (item.IdProduto == id)
                     {
+                        if (LRU)
+                        {
+                            RetirarElemento(indice);
+                            AdicionarElemento(item, indice);
+                        }
                         return true;
                     }
                 }
+
             }
             return false;
         }

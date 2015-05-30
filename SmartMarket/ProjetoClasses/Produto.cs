@@ -14,12 +14,12 @@ namespace ProjetoClasses
         /// <param name="aId"></param>
         /// <param name="aNome"></param>
         /// <param name="abitsc"></param>
-        public Produto(int aId, string aNome, int abitsc)
+        public Produto(int aId, string aNome)
         {
-            BitSc = abitsc;
-            IdProduto = aId;
-            NomeProduto = aNome;
-
+            this.BitSc = 1;
+            this.IdProduto = aId;
+            this.NomeProduto = aNome;
+            this.ControleLRU = -1;
         }
         public Produto()
         { }
@@ -27,8 +27,7 @@ namespace ProjetoClasses
         public int IdProduto { get; set; }
         public string NomeProduto { get; set; }
         public int BitSc { get; set; }
-
-
+        public int ControleLRU { get; set; }
         /// <summary>
         /// Método responsável por gerar a lista que contém os produtos
         /// </summary>
@@ -36,16 +35,16 @@ namespace ProjetoClasses
         public static List<Produto> RetornaListaProduto()
         {
             List<Produto> prod = new List<Produto>();
-            prod.Add(new Produto(0, "Coca Cola", 1));
-            prod.Add(new Produto(1, "Iphone 6", 1));
-            prod.Add(new Produto(2, "Tv Sony", 1));
-            prod.Add(new Produto(3, "Leite", 1));
-            prod.Add(new Produto(4, "Lacta", 1));
-            prod.Add(new Produto(5, "Sabão", 1));
-            prod.Add(new Produto(6, "Ração p/ Cachorro", 1));
-            prod.Add(new Produto(7, "Cerveja", 1));
-            prod.Add(new Produto(8, "Leite Ninho", 1));
-            prod.Add(new Produto(9, "Biscoito", 1));
+            prod.Add(new Produto(0, "Coca Cola"));
+            prod.Add(new Produto(1, "Iphone 6"));
+            prod.Add(new Produto(2, "Tv Sony"));
+            prod.Add(new Produto(3, "Leite"));
+            prod.Add(new Produto(4, "Lacta"));
+            prod.Add(new Produto(5, "Sabão"));
+            prod.Add(new Produto(6, "Ração p/ Cachorro"));
+            prod.Add(new Produto(7, "Cerveja"));
+            prod.Add(new Produto(8, "Leite Ninho"));
+            prod.Add(new Produto(9, "Biscoito"));
 
             return prod;
         }

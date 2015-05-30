@@ -22,13 +22,13 @@ namespace ProjetoClasses.Logicas
             Prateleira Esteira = new Prateleira(tamanhoprateleira);
 
             foreach (char item in sequencia)
-            {   
+            {
                 prod = null;
 
                 if (item != '.')
                 {
                     //Se o elemento não existe no vetor e a ultima posição está nula, ou seja, podendo-se inserir novos elementos
-                    if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString())) &&
+                    if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString()), false) &&
                         Esteira.Esteira[tamanhoprateleira - 1] == null)
                     {
                         //Adiciona o elemento ao vetor
@@ -36,7 +36,7 @@ namespace ProjetoClasses.Logicas
 
                     }
                     //Se o elemento não existe no vetor e a ultima posição não está nula(fazendo-se a substituição de uma página)
-                    else if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString())) &&
+                    else if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString()), false) &&
                         Esteira.Esteira[tamanhoprateleira - 1] != null)
                     {
                         //Retira o elemento da primeira posição

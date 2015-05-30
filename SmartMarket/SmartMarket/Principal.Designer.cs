@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.TxtEndArquivo = new System.Windows.Forms.TextBox();
             this.BtnUpload = new System.Windows.Forms.Button();
             this.FolderBuscarArquivo = new System.Windows.Forms.OpenFileDialog();
@@ -124,6 +125,7 @@
             this.Controls.Add(this.GrpAlgoritmos);
             this.Controls.Add(this.BtnUpload);
             this.Controls.Add(this.TxtEndArquivo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
             this.Text = "Smart Market";
             this.GrpAlgoritmos.ResumeLayout(false);
