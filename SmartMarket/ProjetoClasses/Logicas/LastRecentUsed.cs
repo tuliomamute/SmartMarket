@@ -16,13 +16,12 @@ namespace ProjetoClasses.Logicas
 
         public void IniciarProcessamento(string sequencia, int tamanhoprateleira)
         {
-            List<Produto> Produtos = Produto.RetornaListaProduto();
-            Produto prod;
+            List<Produto> Produtos = null;
             Prateleira Esteira = new Prateleira(tamanhoprateleira);
 
             foreach (char item in sequencia)
             {
-                prod = null;
+                Produtos = Produto.RetornaListaProduto();
 
                 if (item != '.')
                 {
@@ -32,14 +31,19 @@ namespace ProjetoClasses.Logicas
                         //Se o elemento não estiver no vetor, insere-o
                         if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString()), true))
                         {
-                            AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
-                            AlterarIdentificadorTempo(ref Esteira.Esteira);
+                            AdicionarElementoPrateleira(Produtos, item.ToString(), Esteira);
+                            AlterarIdentificadorTempo(Esteira.Esteira);
 
                         }
                         else
                         {
-                            //Se ele estiver no vetor, deve-se retira-lo, para poder zerar o controlador de tempo
-                            AlterarIdentificadorTempo(ref Esteira.Esteira);
+                            //Remove o elemento, para poder zerar o contador
+                            Esteira.RetirarElemento(RetornaIndiceTroca(item.ToString(), Esteira.Esteira));
+                            //Adiciona o elemento ao vetor, após ter sido retirado
+                            AdicionarElementoPrateleira(Produtos, item.ToString(), Esteira);
+
+                            //Altera o identificador de tempo
+                            AlterarIdentificadorTempo(Esteira.Esteira);
                         }
                     }
                     else
@@ -51,27 +55,39 @@ namespace ProjetoClasses.Logicas
                             Esteira.RetirarElemento(RetornaIndiceMaisAntigo(Esteira.Esteira));
 
                             //Adiciona o novo elemento, na posição vaga
-                            AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
+                            AdicionarElementoPrateleira(Produtos, item.ToString(), Esteira);
 
                             //Executa o metodo que irá alterar os valores de tempo
-                            AlterarIdentificadorTempo(ref Esteira.Esteira);
+                            AlterarIdentificadorTempo(Esteira.Esteira);
                         }
                         else
                         {
                             //Se ele estiver no vetor, a troca de posição já foi feita.
                             //bastando executar o algoritmo para alterar o tempo dos objetos.
-                            AlterarIdentificadorTempo(ref Esteira.Esteira);
+                            AlterarIdentificadorTempo(Esteira.Esteira);
                         }
                     }
                 }
             }
         }
 
+        private int RetornaIndiceTroca(string chave, Produto[] prat)
+        {
+            for (int i = 0; i < prat.GetLength(0); i++)
+            {
+                if (prat[i].IdProduto == int.Parse(chave))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         /// <summary>
         /// Método responsável por validar o identificador de tempo
         /// </summary>
         /// <param name="produto"></param>
-        private void AlterarIdentificadorTempo(ref Produto[] prat)
+        private void AlterarIdentificadorTempo(Produto[] prat)
         {
             for (int i = 0; i < prat.GetLength(0); i++)
             {
@@ -90,11 +106,12 @@ namespace ProjetoClasses.Logicas
         /// <param name="Produtos"></param>
         /// <param name="chave"></param>
         /// <param name="Esteira"></param>
-        public void AdicionarElementoPrateleira(List<Produto> Produtos, string chave, ref Prateleira Esteira)
+        public void AdicionarElementoPrateleira(List<Produto> Produtos, string chave, Prateleira Esteira)
         {
-            Produto prod;
+            Produto prod = null;
 
             prod = Produtos.Find(x => x.IdProduto == int.Parse(chave.ToString()));
+
             Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
         }
 
