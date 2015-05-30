@@ -36,6 +36,8 @@ namespace SmartMarket
         /// <param name="e"></param>
         private void BtnUpload_Click(object sender, EventArgs e)
         {
+
+            //Acrescimo de Comentario
             FolderBuscarArquivo.AddExtension = true;
             FolderBuscarArquivo.ShowDialog();
             TxtEndArquivo.Text = FolderBuscarArquivo.FileName;
