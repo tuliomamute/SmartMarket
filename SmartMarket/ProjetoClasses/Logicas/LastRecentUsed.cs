@@ -16,7 +16,6 @@ namespace ProjetoClasses.Logicas
 
         public void IniciarProcessamento(string sequencia, int tamanhoprateleira)
         {
-
             List<Produto> Produtos = Produto.RetornaListaProduto();
             Produto prod;
             Prateleira Esteira = new Prateleira(tamanhoprateleira);
@@ -27,7 +26,6 @@ namespace ProjetoClasses.Logicas
 
                 if (item != '.')
                 {
-
                     //Se houver posição disponível para inserir novos objetos
                     if (Esteira.Esteira[tamanhoprateleira - 1] == null)
                     {
@@ -49,13 +47,22 @@ namespace ProjetoClasses.Logicas
                     }
                     else
                     {
+                        //Realiza a troca do produto, pelo que está fora do vetor
                         if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString()), true))
                         {
-                            //Realizar o código de troca
+                            //Retira o elemento do vetor, baseado no indicador de tempo sendo mais antigo
+                            Esteira.RetirarElemento(RetornaIndiceMaisAntigo(Esteira.Esteira));
+
+                            //Adiciona o novo elemento, na posição vaga
+                            AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
+
+                            //Executa o metodo que irá alterar os valores de tempo
+                            AlterarIdentificadorTempo(Esteira.Esteira);
                         }
                         else
                         {
-                            //Se ele estiver no vetor, deve-se retira-lo, para poder zerar o controlador de tempo
+                            //Se ele estiver no vetor, a troca de posição já foi feita.
+                            //bastando executar o algoritmo para alterar o tempo dos objetos.
                             AlterarIdentificadorTempo(Esteira.Esteira);
                         }
                     }
@@ -94,6 +101,20 @@ namespace ProjetoClasses.Logicas
             Esteira.AdicionarElemento(prod, Esteira.RetornaIndiceLivre(Esteira.Esteira));
         }
 
+        public int RetornaIndiceMaisAntigo(Produto[] prat)
+        {
+            for (int i = 0; i < prat.GetLength(0); i++)
+            {
+                if (prat[i] != null)
+                {
+                    if (prat[i].ControleLRU == prat.GetLength(0) - 1)
+                    {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
 
     }
 }
