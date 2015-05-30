@@ -29,20 +29,17 @@ namespace ProjetoClasses.Logicas
                     //Se houver posição disponível para inserir novos objetos
                     if (Esteira.Esteira[tamanhoprateleira - 1] == null)
                     {
-                        if (true)
+                        //Se o elemento não estiver no vetor, insere-o
+                        if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString()), true))
                         {
-                            //Se o elemento não estiver no vetor, insere-o
-                            if (!Esteira.VerificaExistenciaElemento(int.Parse(item.ToString()), true))
-                            {
-                                AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
-                                AlterarIdentificadorTempo(Esteira.Esteira);
+                            AdicionarElementoPrateleira(Produtos, item.ToString(), ref Esteira);
+                            AlterarIdentificadorTempo(Esteira.Esteira);
 
-                            }
-                            else
-                            {
-                                //Se ele estiver no vetor, deve-se retira-lo, para poder zerar o controlador de tempo
-                                AlterarIdentificadorTempo(Esteira.Esteira);
-                            }
+                        }
+                        else
+                        {
+                            //Se ele estiver no vetor, deve-se retira-lo, para poder zerar o controlador de tempo
+                            AlterarIdentificadorTempo(Esteira.Esteira);
                         }
                     }
                     else
